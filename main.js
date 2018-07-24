@@ -52,4 +52,4 @@ function renderMovieOnDom(movie){
         var marker = new google.maps.Marker({position:mapOptions.center ,animation:google.maps.Animation.DROP});
         marker.setMap(map);
       }
-
+}
