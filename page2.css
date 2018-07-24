@@ -21,6 +21,8 @@
 }
 
 #movielist {
+    display: flex;
+    flex-wrap: wrap;
     width: 63%;
     background-color: lightcoral;
     /* display: inline-block; */
