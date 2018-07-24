@@ -1,5 +1,7 @@
 $(document).ready(initializeApp);
 
+var movieArray = [];
+
 function initializeApp(){
     getMovieInfoApi();
 }
@@ -21,4 +23,17 @@ function getMovieInfoApi(){
     $.ajax(movieInfo);
     }
 
-    
+function displayMovieList(response){
+      var movies = response.results;
+
+      for(var index = 0; index < movies.length; index++){
+            var oneMovie = movies[index];
+            var movieTitle = movies.title;
+            var movieRating = Math.round(movies.vote_average / 2);
+            var movieObj = {
+                  movieTitle,
+                  movieRating
+            };
+            movies.push(movieObj);
+      }
+}
