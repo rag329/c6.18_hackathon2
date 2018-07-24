@@ -8,20 +8,21 @@
     <script src="main.js"></script>
     <link rel="stylesheet" href="page2.css">
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-    
+
 
 </head>
 
 
-<body
+<body>
     <div class="main_container">
         <!--BEGINNING OF THE UPPER AREA-->
         <div class="upper_area">
-                <input id="pac-input" class="controls" type="text" placeholder="Search Box">
-                <div id="map"></div>
+            <!-- <input id="pac-input" class="controls" type="text" placeholder="Search Box"> -->
+            <div id="map">
+            </div>
             
-                <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWbz8SSS_X8ErgwW0lXzC_CMdGAJuWKA8&libraries=places&callback=initAutocomplete"
-                     async defer></script>
+            <input id="pac-input" class="controls" type="text" placeholder="Search Box">
+
             <div id="movielist">
 
             </div>
@@ -51,8 +52,9 @@
 
     </div>
 
-     
 
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWbz8SSS_X8ErgwW0lXzC_CMdGAJuWKA8&libraries=places&callback=initAutocomplete"
+        async defer></script>
 </body>
 
 </html>
