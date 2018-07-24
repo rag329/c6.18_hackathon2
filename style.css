@@ -1,5 +1,60 @@
-#map {
-    width:300px;
-    height:400px;
-    left: 70%;
+
+body{
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.main_container{
+    width: 100vw;
+    height: 100vh;
+}
+
+.header_container{
+    height: 20%;
+    width: 95%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.header{
+    height: 80%;
+    width: 50%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.header_text{
+    font-size: 5em;
+}
+
+.outer_search_container{
+    height: 77%;
+    width: 95%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.inner_search_container{
+    height: 20%;
+    width: 50%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#search_field{
+    width: 75%;
+    height: 50%;
+    font-size: 3em;
+}
+
+#search_button{
+    width: 20%;
+    height: 53%;
+    font-size: 3em;
 }
