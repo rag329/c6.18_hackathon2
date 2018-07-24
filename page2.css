@@ -1,3 +1,18 @@
+.main_container {
+    height: 100vh;
+}
+
+.upper_area {
+    border: 1px solid black;
+    display: flex;
+    height: 43%
+}
+
+.bottom_area {
+    height: 50%;
+    border: 1px dotted red;
+}
+
 #googleMap {
     width: 35%;
     height: 400px;
@@ -6,9 +21,46 @@
 
 #movielist {
     width: 63%;
-    background-color: black;
-    display: inline-block;
+
+    background-color: lightcoral;
+    /* display: inline-block; */
 }
+
+#trailerModal {
+    display: none;
+}
+
+.modal-body {
+    text-align: center;
+}
+
+.bottom_area {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.bottom_area>div {
+    height: 55%;
+    width: 14%;
+}
+
+.bottom_area>div>h3 {
+    text-align: center;
+}
+
+img {
+    height: 100%;
+    width: 100%;
+}
+
+#map {
+    width: 400px;
+    height: 500px;
+}
+
+    /* background-color: black;
+    display: inline-block; */
+
 
  /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
@@ -89,3 +141,4 @@
       #target {
         width: 345px;
       }
+
