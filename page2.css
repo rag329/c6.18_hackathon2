@@ -53,9 +53,14 @@ img {
     width: 100%;
 }
 
-    background-color: black;
-    display: inline-block;
+#map {
+    width: 400px;
+    height: 500px;
 }
+
+    /* background-color: black;
+    display: inline-block; */
+
 
  /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */

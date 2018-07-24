@@ -7,6 +7,7 @@ function initializeApp() {
     getMovieInfoApi();
     handleEvents();
     displayFoodInArea();
+    myMap();
 }
 
 function handleEvents() {
@@ -22,20 +23,19 @@ function getMovieInfoApi() {
         },
         method: "GET",
         success: function (response) {
-            // console.log(response);
 
         }
     }
     $.ajax(movieInfo);
 }
 
-function myMap() {
-    var mapProp = {
-        center: new google.maps.LatLng(33.6846, -117.8265),
-        zoom: 12,
-    };
-    var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
-}
+// function myMap() {
+//    var mapProp = {
+//        center: new google.maps.LatLng(33.6846, -117.8265),
+//         zoom: 12,
+//     };
+//     var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+// }
 
 function movieTrailer(title) {
     var ajaxOptions = {
@@ -58,15 +58,8 @@ function movieTrailer(title) {
         }
     }
     $.ajax(ajaxOptions)
+}
   
-function initializeApp(){
-    getMovieInfoApi();
-    clickHandlers();
-}
-
-function clickHandlers(){
-    $('search_button').click(getInputValue);
-}
 
 function getInputValue(){
     var inputValue = $('search_button').val();
@@ -179,7 +172,7 @@ function renderMovieOnDom(movie){
 
 }
 
-function displayFoodInArea(cityName){
+function displayFoodInArea(){
     var ajaxOptions = {
         "url": "https://yelp.ongandy.com/businesses",
         "method": "POST",
@@ -213,14 +206,14 @@ function displayFoodInArea(cityName){
     $.ajax(ajaxOptions)
 }
 
-   // function myMap() {
-     //   var mapCanvas = document.getElementById("map");
-       // var mapOptions = {
-         // center: new google.maps.LatLng(40.5, -0.2), zoom: 10 // how we center our map
-       // };
-        //var map = new google.maps.Map(mapCanvas, mapOptions);
-        //var marker = new google.maps.Marker({position:mapOptions.center ,animation:google.maps.Animation.DROP});
-        //marker.setMap(map);
-      //}
+function myMap() {
+        var mapCanvas = document.getElementById("map");
+        var mapOptions = {
+          center: new google.maps.LatLng(40.5, -0.2), zoom: 10 // how we center our map
+       };
+        var map = new google.maps.Map(mapCanvas, mapOptions);
+        var marker = new google.maps.Marker({position:mapOptions.center ,animation:google.maps.Animation.DROP});
+        marker.setMap(map);
+      }
 
 
