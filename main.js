@@ -3,29 +3,14 @@ var movieArray = [];
 var movieObj = {};
 
 function initializeApp() {
-    // $('#trailerModal').modal('show');
-    // getMovieInfoApi();
+    //$('#trailerModal').modal('show');
+    getMovieInfoApi();
     handleEvents();
     displayFoodInArea();
 }
 
 function handleEvents() {
     $('#movielist > button').on('click', movieTrailer)
-}
-
-function getMovieInfoApi() {
-    var movieInfo = {
-        dataType: 'json',
-        url: 'https://api.themoviedb.org/3/movie/now_playing?api_key=90ec7552787d25df49e8eac53f951398&language=en-US&page=1',
-        data: {
-            api_key: '90ec7552787d25df49e8eac53f951398'
-        },
-        method: "GET",
-        success: function (response) {
-
-        }
-    }
-    $.ajax(movieInfo);
 }
 
 function movieTrailer(title) {
@@ -156,7 +141,7 @@ function displayMovieList(response){
 }
 
 function renderMovieOnDom(movie){
-    debugger;
+
       var movieDiv = $('#movielist');
 
       var poster = $('<img>', {
