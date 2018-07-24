@@ -105,33 +105,37 @@ function getMovieInfoApi(){
           url: 'https://api.themoviedb.org/3/movie/now_playing?api_key=90ec7552787d25df49e8eac53f951398&language=en-US&page=1',
           data:{api_key:'90ec7552787d25df49e8eac53f951398'},
           method:"GET",
-          success:displayMovieList;
-        
-    $.ajax(movieInfo);
+          success:function(response){
+              console.log(response);
+            displayMovieList(response);
+          }
     }
+    $.ajax(movieInfo);
 
+}
 
 function displayMovieList(response){
       var movies = response.results;
 
       for(var index = 0; index < movies.length; index++){
-            var oneMovie = movies[index];
-            var moviePoster = movies.poster_path;
-            var movieRating = Math.round(movies.vote_average / 2);
+            
+            var moviePoster = movies[index].poster_path;
+            var movieRating = Math.round(movies[index].vote_average / 2);
             movieObj = {
                   moviePoster,
                   movieRating
             };
-            oneMovie.push(movieObj);
-            renderMovieOnDom(oneMovie);
+            movieArray.push(movieObj);
+            renderMovieOnDom(movieObj);
       }
 }
 
 function renderMovieOnDom(movie){
-      var bodyDiv = $('div');
+    debugger;
+      var bodyDiv = $('body');
       var poster = $('<div>').text(movie.moviePoster);
-      var rating = $('<div>').text(starRater(movie.movieRating));
-      bodyDiv.append(poster, rating);
+      //var rating = $('<div>').text(starRater(movie.movieRating));
+      bodyDiv.append(poster);
 }
 
 
@@ -144,4 +148,4 @@ function renderMovieOnDom(movie){
         var marker = new google.maps.Marker({position:mapOptions.center ,animation:google.maps.Animation.DROP});
         marker.setMap(map);
       }
-}
+
