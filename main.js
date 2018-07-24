@@ -4,10 +4,9 @@ var movieObj = {};
 
 function initializeApp() {
     // $('#trailerModal').modal('show');
-    getMovieInfoApi();
+    // getMovieInfoApi();
     handleEvents();
     displayFoodInArea();
-    myMap();
 }
 
 function handleEvents() {
@@ -28,14 +27,6 @@ function getMovieInfoApi() {
     }
     $.ajax(movieInfo);
 }
-
-// function myMap() {
-//    var mapProp = {
-//        center: new google.maps.LatLng(33.6846, -117.8265),
-//         zoom: 12,
-//     };
-//     var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
-// }
 
 function movieTrailer(title) {
     var ajaxOptions = {
@@ -192,14 +183,14 @@ function displayFoodInArea(){
             console.log(arrayOfBusinesses);
             for(var i = 0; i < 6; i++){
                 var newDiv = $('<div>');
-                var newh3 = $('<h3>');
+                var newh3 = $('<h4>');
                 var newImage = $('<img>');
                 newh3.text(arrayOfBusinesses[i].name);
                 newImage.attr('src', arrayOfBusinesses[i]['image_url']);
                 newDiv.append(newh3, newImage);
                 $('.bottom_area').append(newDiv);
-                var newPtag = $('<h3>').text(`Phone Number: ${arrayOfBusinesses[i].phone.slice(2)}`);
-                var pricePTag = $('<h3>').text(`Price: ${arrayOfBusinesses[i].price}`)
+                var newPtag = $('<h4>').text(`Phone Number: ${arrayOfBusinesses[i].phone.slice(2)}`);
+                var pricePTag = $('<h4>').text(`Price: ${arrayOfBusinesses[i].price}`)
                 newDiv.append(newPtag, pricePTag)
             }
 
