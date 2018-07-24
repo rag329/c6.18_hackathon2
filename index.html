@@ -1,16 +1,36 @@
 <!doctype html>
-<html>
+<html lang="en">
 
-
-<head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <title>Page 1</title>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-         <script src="main.js"></script>
-</head>
-<body>
+        <script src="main.js"></script>
+    </head>
 
-        <div id="map" style="width:300px;height:400px;left: 70%"></div>
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWbz8SSS_X8ErgwW0lXzC_CMdGAJuWKA8&callback=myMap"></script>
+    <body>
+        <div class="main_container">
 
+            <div class="header_container">
 
-</body>
+                <div class="header">
+                    <p class="header_text">Food and Film</p>
+                </div>
+
+            </div>
+
+            <div class="outer_search_container">
+
+                <div class="inner_search_container">
+                        <input id="search_field" type="text" placeholder="CITY">
+                        <button id="search_button" type="button">GO</button>
+                </div>
+
+            </div>
+        </div>
+    </body>
 </html>
