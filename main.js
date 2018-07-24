@@ -116,11 +116,12 @@ function getMovieInfoApi(){
 
 function displayMovieList(response){
       var movies = response.results;
-
+      var webAdd = "https://image.tmdb.org/t/p/w185";
+      
       for(var index = 0; index < movies.length; index++){
-            
-            var moviePoster = movies[index].poster_path;
-            var movieRating = Math.round(movies[index].vote_average / 2);
+            var webImage = movies[index].poster_path;
+            var moviePoster = webAdd + webImage;
+            var movieRating = movies[index].vote_average + ' out of 10';
             movieObj = {
                   moviePoster,
                   movieRating
@@ -133,9 +134,13 @@ function displayMovieList(response){
 function renderMovieOnDom(movie){
     debugger;
       var bodyDiv = $('body');
-      var poster = $('<div>').text(movie.moviePoster);
-      //var rating = $('<div>').text(starRater(movie.movieRating));
-      bodyDiv.append(poster);
+      var poster = $('<img>', {
+            src: movie.moviePoster,
+            width: '200px',
+            height: '100px'
+      });
+      var rating = $('<div>').text(movie.movieRating);
+      bodyDiv.append(poster, rating);
 }
 
 
