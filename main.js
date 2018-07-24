@@ -141,7 +141,8 @@ function displayMovieList(response){
 }
 
 function renderMovieOnDom(movie){
-      var bodyDiv = $('#movielist');
+
+      var movieDiv = $('#movielist');
 
       var poster = $('<img>', {
             src: movie.moviePoster,
@@ -149,7 +150,7 @@ function renderMovieOnDom(movie){
             height: '100px'
       });
       var rating = $('<div>').text(movie.movieRating);
-      bodyDiv.append(poster, rating);
+      movieDiv.append(poster, rating);
 }
 
 function displayFoodInArea(){
