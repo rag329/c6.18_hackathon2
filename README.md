@@ -44,4 +44,4 @@ Hackathon project involving the combination of different data sources into an ap
   - Sean Prouty
 
 ### Deadline: 
-- 7:00pm Thursday, July 25, 2018
+- 7:00pm Wednesday, July 25, 2018
