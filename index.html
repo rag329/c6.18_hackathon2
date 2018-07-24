@@ -6,6 +6,7 @@
         <meta name="viewport"
               content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" type="text/css" href="style.css">
         <title>Page 1</title>
     </head>
 
@@ -13,13 +14,20 @@
         <div class="main_container">
 
             <div class="header_container">
-                <div class="header"></div>
+
+                <div class="header">
+                    <p class="header_text">Food and Film</p>
+                </div>
+
             </div>
 
-            <div class="search_bar_container">
-                <input type="text" placeholder="ZIP/CITY">
+            <div class="outer_search_container">
 
-                <button type="button">GO</button>
+                <div class="inner_search_container">
+                        <input id="search_field" type="text" placeholder="CITY">
+                        <button id="search_button" type="button">GO</button>
+                </div>
+
             </div>
         </div>
     </body>
