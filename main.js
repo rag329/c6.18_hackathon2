@@ -1,6 +1,7 @@
 $(document).ready(initializeApp);
 
 var movieArray = [];
+var movieObj = {};
 
 function initializeApp(){
     getMovieInfoApi();
@@ -23,14 +24,22 @@ function displayMovieList(response){
 
       for(var index = 0; index < movies.length; index++){
             var oneMovie = movies[index];
-            var movieTitle = movies.title;
+            var moviePoster = movies.poster_path;
             var movieRating = Math.round(movies.vote_average / 2);
-            var movieObj = {
-                  movieTitle,
+            movieObj = {
+                  moviePoster,
                   movieRating
             };
-            movies.push(movieObj);
+            oneMovie.push(movieObj);
+            renderMovieOnDom(oneMovie);
       }
+}
+
+function renderMovieOnDom(movie){
+      var bodyDiv = $('div');
+      var poster = $('<div>').text(movie.moviePoster);
+      var rating = $('<div>').text(starRater(movie.movieRating));
+      bodyDiv.append(poster, rating);
 }
 
 
@@ -43,3 +52,4 @@ function displayMovieList(response){
         var marker = new google.maps.Marker({position:mapOptions.center ,animation:google.maps.Animation.DROP});
         marker.setMap(map);
       }
+}
