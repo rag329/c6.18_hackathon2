@@ -81,7 +81,7 @@ function renderMovieOnDom(movie){
       $('.item').first().addClass('active');
 }
 
-function displayFoodInArea(){
+function displayFoodInArea(){ //display information about restaurants on dom after ajax call
     var ajaxOptions = {
         "url": "https://yelp.ongandy.com/businesses",
         "method": "POST",
