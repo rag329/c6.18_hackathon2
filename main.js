@@ -129,9 +129,11 @@ function displayMovieList(response){
       
       for(var index = 0; index < 16; index++){
             var webImage = movies[index].poster_path;
+            var movieTitle = movies[index].title;
             var moviePoster = webAdd + webImage;
             var movieRating = movies[index].vote_average + ' /10';
             movieObj = {
+                  movieTitle,
                   moviePoster,
                   movieRating
             };
@@ -158,7 +160,7 @@ function displayFoodInArea(){
         "dataType": "JSON",
         "data": {
             term: "restauraunts",
-            location: "santa monica",
+            location: "long beach",
             api_key: "XSyryzoREYThrY1P0pDAkbK9uJV0j7TVklsKegO9g9aqqqGz87SZPuhQ0Cob0jzZ6G1BCVE9JaycPHyB2OI7hXgTJYs_enS7SKr1G21Jf45cDBYbUAHOFnh-r3FWW3Yx"
         },
         success: function (response) {
@@ -195,4 +197,17 @@ function myMap() {
         marker.setMap(map);
       }
 
-
+function clickMovieTheaters(){
+      var yelpTheaters = {
+            "url": "https://yelp.ongandy.com/businesses",
+            "method": "POST",
+            "dataType": "JSON",
+            "data": {
+                term: "theaters",
+                location: "long beach",
+                api_key: "XSyryzoREYThrY1P0pDAkbK9uJV0j7TVklsKegO9g9aqqqGz87SZPuhQ0Cob0jzZ6G1BCVE9JaycPHyB2OI7hXgTJYs_enS7SKr1G21Jf45cDBYbUAHOFnh-r3FWW3Yx"
+            },
+            success: function (response){
+                  
+            }
+}
