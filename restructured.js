@@ -50,6 +50,9 @@ function placeCallback(results, status) {
                 var thisInfoWindow = infoWindow;
                 marker.addListener('click',function(){
                     thisInfoWindow.open(map,thisMarker); 
+                    $("#myModal").modal('show');
+                    $(".modal-title").text(name)
+                    debugger;
                 });
             })()
             console.log(marker)
