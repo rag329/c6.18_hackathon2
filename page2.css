@@ -1,25 +1,31 @@
 @import url('https://fonts.googleapis.com/css?family=Orbitron');
 @import url('https://fonts.googleapis.com/css?family=Eczar');
-
-body{
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-    url(./images/wallpaper1.jpg);
+body {
+    /* background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url(./images/wallpaper1.jpg); */
+    background-color: lightskyblue;
 }
 
-h4, p{
-        font-family: Eczar;
-        color: white;
-}
-#movielist >div >div {
+h4,
+p {
     font-family: Eczar;
-    color: white;
+    color: darkblue;
+}
+
+#movielist>div>div {
+    font-family: Eczar;
+    color: darkblue;
+}
+#movielist > div img{
+    border-radius: 10%;
+    cursor: pointer;
 }
 .main_container {
     height: 100vh;
 }
 
 .upper_area {
-    border: 1px solid black;
+    /* border: 1px solid black; */
     display: flex;
     /* height: 43% */
     height: 60%;
@@ -34,7 +40,6 @@ h4, p{
     display: flex;
     /* width: 35%; */
     height: 100%;
-
 }
 
 #movielist {
@@ -46,12 +51,15 @@ h4, p{
     /* background-color: lightcoral; */
     /* display: inline-block; */
 }
-#movielist > div{
+
+#movielist>div {
     /* height: 100%; */
 }
-#movielist div{
+
+#movielist div {
     text-align: center;
 }
+
 #trailerModal {
     display: none;
 }
@@ -70,7 +78,7 @@ h4, p{
     width: 14%;
 }
 
-.bottom_area > div > h4 {
+.bottom_area>div>h4 {
     text-align: center;
 }
 
