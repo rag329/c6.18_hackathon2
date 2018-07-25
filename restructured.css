@@ -25,6 +25,7 @@ body{
     height: 90%;
     margin: 0 auto;
     top: 10%;
+    z-index: 1;
 }
 
 #modal-content-id{
@@ -50,7 +51,10 @@ body{
 }
 /*CAROUSEL CSS ENDS HERE*/
 
-
+img {
+    width: 15%;
+    height: 15%;
+}
 
 
 

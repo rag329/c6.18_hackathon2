@@ -6,6 +6,7 @@ var movieObj = {};
 function initializeApp() {
     $('#trailerModal').modal('hide');
     getMovieInfoApi();
+    displayFoodInArea();
 }
 
 
@@ -73,10 +74,10 @@ function renderMovieOnDom(movie){
             src: movie.moviePoster,
             height: '85%'
       });
-      var rating = $('<div>').text(movie.movieRating);
+      var rating = $('<div>').text("Rating:  " + movie.movieRating);
       movieDiv.append(poster, rating);
       movieDiv.on('click', movieTrailer)
-      $('.carousel-inner').append(movieDiv)
+      $('.movie-library').append(movieDiv)
       $('.item').first().addClass('active');
 }
 
@@ -91,16 +92,21 @@ function displayFoodInArea(){
             api_key: "XSyryzoREYThrY1P0pDAkbK9uJV0j7TVklsKegO9g9aqqqGz87SZPuhQ0Cob0jzZ6G1BCVE9JaycPHyB2OI7hXgTJYs_enS7SKr1G21Jf45cDBYbUAHOFnh-r3FWW3Yx"
         },
         success: function (response) {
+            console.log("it's in");
             var arrayOfBusinesses = response.businesses;
             console.log(arrayOfBusinesses);
             for(var i = 0; i < 6; i++){
                 var newDiv = $('<div>');
+                $(newDiv).addClass('food');
+                $(newDiv).addClass('item');
                 var newh3 = $('<h4>');
                 var newImage = $('<img>');
                 newh3.text(arrayOfBusinesses[i].name);
                 newImage.attr('src', arrayOfBusinesses[i]['image_url']);
                 newDiv.append(newh3, newImage);
-                $('.bottom_area').append(newDiv);
+                console.log(newDiv);
+                $('.food-library').append(newDiv);
+                $('.food').first().addClass('active');
                 var newPtag = $('<h4>').text(`Phone Number: ${arrayOfBusinesses[i].phone.slice(2)}`);
                 var pricePTag = $('<h4>').text(`Price: ${arrayOfBusinesses[i].price}`)
                 newDiv.append(newPtag, pricePTag)
