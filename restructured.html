@@ -5,9 +5,11 @@
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="main.js"></script>
     <script src="restructured.js"></script>
     <link rel="stylesheet" href="restructured.css">
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
     <title>Flix And Food Finder</title>
 </head>
 <body>
@@ -18,6 +20,42 @@
             <!-- <input id="searchBar" type="text" placeholder="Enter a city">  -->
             <button>Enter</button>
         </div>
+            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">go</button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal-dialog" id="modal-dialog-id">
+
+                    <!-- Modal content-->
+                    <div class="modal-content" id="modal-content-id">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Modal Header</h4>
+                        </div>
+                        <div class="modal-body">
+
+                            <!--carousel-->
+                            <div id="posterCarousel" class="carousel slide" data-ride="carousel">
+                                <div class="carousel-inner">
+
+                                </div>
+
+                                <!-- Carousel controls -->
+                                <a class="carousel-control left" href="#posterCarousel" data-slide="prev">
+                                    <span class="glyphicon glyphicon-chevron-left"></span>
+                                </a>
+                                <a class="carousel-control right" href="#posterCarousel" data-slide="next">
+                                    <span class="glyphicon glyphicon-chevron-right"></span>
+                                </a>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
         <div class="bottomHalf">
             <div id="map">
 
