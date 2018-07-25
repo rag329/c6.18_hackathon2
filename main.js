@@ -3,14 +3,14 @@ var movieArray = [];
 var movieObj = {};
 
 function initializeApp() {
-    //$('#trailerModal').modal('show');
+    $('#trailerModal').modal('hide');
     getMovieInfoApi();
     handleEvents();
-    displayFoodInArea();
+    // displayFoodInArea();
 }
 
 function handleEvents() {
-    $('#movielist > button').on('click', movieTrailer)
+
 }
 
 function movieTrailer(title) {
@@ -19,7 +19,7 @@ function movieTrailer(title) {
         dataType: 'json',
         method: 'post',
         data: {
-            'q': title + ' trailer',
+            'q': 'equalizer 2' + ' trailer',
             'maxResults': 1
 
         },
@@ -148,6 +148,7 @@ function renderMovieOnDom(movie){
       });
       var rating = $('<div>').text(movie.movieRating);
       movieDiv.append(poster, rating);
+      movieDiv.on('click', movieTrailer)
       $('#movielist').append(movieDiv)
 }
 
@@ -158,7 +159,7 @@ function displayFoodInArea(){
         "dataType": "JSON",
         "data": {
             term: "restauraunts",
-            location: "santa monica",
+            location: "cerritos",
             api_key: "XSyryzoREYThrY1P0pDAkbK9uJV0j7TVklsKegO9g9aqqqGz87SZPuhQ0Cob0jzZ6G1BCVE9JaycPHyB2OI7hXgTJYs_enS7SKr1G21Jf45cDBYbUAHOFnh-r3FWW3Yx"
         },
         success: function (response) {
