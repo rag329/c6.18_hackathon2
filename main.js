@@ -16,7 +16,7 @@ function movieTrailer(title) {
         dataType: 'json',
         method: 'post',
         data: {
-            'q': 'equalizer 2' + ' trailer',
+            'q': title + ' trailer',
             'maxResults': 1
 
         },
