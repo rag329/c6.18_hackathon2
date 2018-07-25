@@ -1,3 +1,19 @@
+@import url('https://fonts.googleapis.com/css?family=Orbitron');
+@import url('https://fonts.googleapis.com/css?family=Eczar');
+
+body{
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url(./images/wallpaper1.jpg);
+}
+
+h4, p{
+        font-family: Eczar;
+        color: white;
+}
+#movielist >div >div {
+    font-family: Eczar;
+    color: white;
+}
 .main_container {
     height: 100vh;
 }
@@ -5,7 +21,8 @@
 .upper_area {
     border: 1px solid black;
     display: flex;
-    height: 43%
+    /* height: 43% */
+    height: 60%;
 }
 
 .bottom_area {
@@ -22,12 +39,19 @@
 
 #movielist {
     display: flex;
+    justify-content: space-evenly;
     flex-wrap: wrap;
-    width: 63%;
-    background-color: lightcoral;
+    width: 80%;
+    height: 100%;
+    /* background-color: lightcoral; */
     /* display: inline-block; */
 }
-
+#movielist > div{
+    /* height: 100%; */
+}
+#movielist div{
+    text-align: center;
+}
 #trailerModal {
     display: none;
 }
@@ -57,8 +81,7 @@ img {
 
 #map {
     height: 100%;
-    width: 50%;
-    /* left: 65%; */
+    width: 20%;
 }
 
 /* Optional: Makes the sample page fill the window. */
