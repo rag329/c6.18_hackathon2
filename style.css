@@ -2,6 +2,8 @@
 body{
     box-sizing: border-box;
     overflow: hidden;
+    background-color: black;
+
 }
 
 .main_container{
@@ -28,6 +30,7 @@ body{
 
 .header_text{
     font-size: 5em;
+    color: white;
 }
 
 .outer_search_container{
