@@ -127,10 +127,10 @@ function displayMovieList(response){
       var movies = response.results;
       var webAdd = "https://image.tmdb.org/t/p/w185";
       
-      for(var index = 0; index < movies.length; index++){
+      for(var index = 0; index < 16; index++){
             var webImage = movies[index].poster_path;
             var moviePoster = webAdd + webImage;
-            var movieRating = movies[index].vote_average + ' out of 10';
+            var movieRating = movies[index].vote_average + ' /10';
             movieObj = {
                   moviePoster,
                   movieRating
@@ -141,16 +141,14 @@ function displayMovieList(response){
 }
 
 function renderMovieOnDom(movie){
-
-      var movieDiv = $('#movielist');
-
+      var movieDiv = $('<div>');
       var poster = $('<img>', {
             src: movie.moviePoster,
-            width: '200px',
-            height: '100px'
+            height: '85%'
       });
       var rating = $('<div>').text(movie.movieRating);
       movieDiv.append(poster, rating);
+      $('#movielist').append(movieDiv)
 }
 
 function displayFoodInArea(){
@@ -160,7 +158,7 @@ function displayFoodInArea(){
         "dataType": "JSON",
         "data": {
             term: "restauraunts",
-            location: "irvine",
+            location: "santa monica",
             api_key: "XSyryzoREYThrY1P0pDAkbK9uJV0j7TVklsKegO9g9aqqqGz87SZPuhQ0Cob0jzZ6G1BCVE9JaycPHyB2OI7hXgTJYs_enS7SKr1G21Jf45cDBYbUAHOFnh-r3FWW3Yx"
         },
         success: function (response) {
