@@ -7,6 +7,7 @@ function initializeApp() {
     getMovieInfoApi();
     handleEvents();
     // displayFoodInArea();
+    addClickHandler
 }
 
 function handleEvents() {
@@ -144,6 +145,7 @@ function displayMovieList(response){
 
 function renderMovieOnDom(movie){
       var movieDiv = $('<div>');
+      movieDiv.addClass('item');
       var poster = $('<img>', {
             src: movie.moviePoster,
             height: '85%'
@@ -151,7 +153,8 @@ function renderMovieOnDom(movie){
       var rating = $('<div>').text(movie.movieRating);
       movieDiv.append(poster, rating);
       movieDiv.on('click', movieTrailer)
-      $('#movielist').append(movieDiv)
+      $('.carousel-inner').append(movieDiv)
+      $('.item').first().addClass('active');
 }
 
 function displayFoodInArea(){
@@ -213,3 +216,4 @@ function clickMovieTheaters(){
             }
 }
 }
+
