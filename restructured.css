@@ -18,3 +18,21 @@ body{
 .bottomHalf{
     /* border: 1px solid blue; */
 }
+
+#modal-dialog-id{
+    width: 90%;
+    height: 90%;
+    margin: 0 auto;
+    top: 10%;
+}
+
+#modal-content-id{
+    width: 90%;
+    height: 90%;
+    margin: 0 auto;
+}
+
+
+
+
+
