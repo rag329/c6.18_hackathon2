@@ -18,6 +18,9 @@ function myMap() {
         animation: google.maps.Animation.DROP
     });
     marker.setMap(map);
+    // google.maps.event.addListener(marker, 'click', function(){
+    //     console.log('clicked');
+    // });
 }
 
 function initAutocomplete() {
@@ -69,13 +72,24 @@ function initAutocomplete() {
                 anchor: new google.maps.Point(17, 34),
                 scaledSize: new google.maps.Size(25, 25)
             };
-            // Create a marker for each place.
-            markers.push(new google.maps.Marker({
+            
+            var marker = new google.maps.Marker({
                 map: map,
                 icon: icon,
                 title: place.name,
                 position: place.geometry.location
-            }));
+            });
+
+            var infoWindow = new google.maps.InfoWindow({
+                content: place.name
+            });
+
+            marker.addListener('click', function() {
+                console.log("Yo what's up");
+                infoWindow.open(map, marker);
+            });
+            // Create a marker for each place.
+            markers.push();
 
             if (place.geometry.viewport) {
                 // Only geocodes have viewport.
