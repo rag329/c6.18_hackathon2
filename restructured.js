@@ -89,7 +89,7 @@ function initAutocomplete() {
                 infoWindow.open(map, marker);
             });
             // Create a marker for each place.
-            markers.push();
+            markers.push(marker);
 
             if (place.geometry.viewport) {
                 // Only geocodes have viewport.
