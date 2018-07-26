@@ -117,7 +117,18 @@ function placeCallback(results, status) {
                 position: place.geometry.location,
                 animation: google.maps.Animation.DROP
             });
-            
+            var infoWindow = new google.maps.InfoWindow({
+                content:place.name
+            });
+            (function(){
+                var thisMarker = marker;
+                var name = place.name;
+                var thisInfoWindow = infoWindow;
+                marker.addListener('click',function(){
+                    thisInfoWindow.open(map,thisMarker); 
+                });
+            })()
+            console.log(marker)
             globalMarkers.push(marker);
         }
     }
@@ -132,6 +143,7 @@ function removeMarkers() {
 function determineStartCoords() {
     removeMarkers();
     var address = $("#pac-input").val();
+    displayFoodInArea(address);
     var latLng = geocoder.geocode({
         'address': address
     }, getCustomPlaces);
@@ -139,17 +151,23 @@ function determineStartCoords() {
 
 
 
-function displayFoodInArea() {
+function displayFoodInArea(cityname) {
     var ajaxOptions = {
         "url": "https://yelp.ongandy.com/businesses",
         "method": "POST",
         "dataType": "JSON",
         "data": {
             term: "restauraunts",
-            location: "cerritos",
+            location: cityname,
             api_key: "XSyryzoREYThrY1P0pDAkbK9uJV0j7TVklsKegO9g9aqqqGz87SZPuhQ0Cob0jzZ6G1BCVE9JaycPHyB2OI7hXgTJYs_enS7SKr1G21Jf45cDBYbUAHOFnh-r3FWW3Yx"
         },
         success: function (response) {
+            console.log('its working',cityname);
+            var userInput = $('#searchbar').val();
+            $('button').on('click', function () {
+                // console.log(userInput)
+            })
+
             var arrayOfBusinesses = response.businesses;
             console.log(arrayOfBusinesses);
             for(var i = 0; i < 6; i++){
@@ -231,6 +249,7 @@ function initAutocomplete() {
     // Listen for the event fired when the user selects a prediction and retrieve
     // more details for that place.
     searchBox.addListener('places_changed', function () {
+        return;
         var places = searchBox.getPlaces();
 
         if (places.length == 0) {
