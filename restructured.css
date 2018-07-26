@@ -225,7 +225,7 @@ body{
 }
 
 #modal-content-id{
-    width: 90%;
+    width: 65%;
     height: 90%;
     margin: 0 auto;
 }
@@ -237,7 +237,7 @@ body{
     margin-top: 20px;
 }
 .carousel .item{
-    min-height: 280px; /* Prevent carousel from being distorted if for some reason image doesn't load */
+    /* min-height: 280px; Prevent carousel from being distorted if for some reason image doesn't load */
 }
 .carousel .item img{
     margin: 0 auto; /* Align slide image horizontally center */
