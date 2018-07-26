@@ -51,7 +51,7 @@ function getMovieInfoApi(){
 function displayMovieList(response){
       var movies = response.results;
       var webAdd = "https://image.tmdb.org/t/p/w185";
-      
+
       for(var index = 0; index < 16; index++){
             var webImage = movies[index].poster_path;
             var movieTitle = movies[index].title;
@@ -99,7 +99,7 @@ function displayFoodInArea(){
                 var newDiv = $('<div>');
                 $(newDiv).addClass('food');
                 $(newDiv).addClass('item');
-                var newh3 = $('<h4>');
+                var newh3 = $('<div>');
                 var newImage = $('<img>');
                 newh3.text(arrayOfBusinesses[i].name);
                 newImage.attr('src', arrayOfBusinesses[i]['image_url']);
@@ -107,8 +107,8 @@ function displayFoodInArea(){
                 console.log(newDiv);
                 $('.food-library').append(newDiv);
                 $('.food').first().addClass('active');
-                var newPtag = $('<h4>').text(`Phone Number: ${arrayOfBusinesses[i].phone.slice(2)}`);
-                var pricePTag = $('<h4>').text(`Price: ${arrayOfBusinesses[i].price}`)
+                var newPtag = $('<div>').text(`Phone Number: ${arrayOfBusinesses[i].phone.slice(2)}`);
+                var pricePTag = $('<div>').text(`Price: ${arrayOfBusinesses[i].price}`)
                 newDiv.append(newPtag, pricePTag)
             }
 
@@ -131,7 +131,7 @@ function clickMovieTheaters(){
                 api_key: "XSyryzoREYThrY1P0pDAkbK9uJV0j7TVklsKegO9g9aqqqGz87SZPuhQ0Cob0jzZ6G1BCVE9JaycPHyB2OI7hXgTJYs_enS7SKr1G21Jf45cDBYbUAHOFnh-r3FWW3Yx"
             },
             success: function (response){
-                  
+
             }
       }
 }
