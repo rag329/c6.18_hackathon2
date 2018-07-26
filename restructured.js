@@ -41,16 +41,22 @@ function movieTrailer(title) {
     $.ajax(ajaxOptions)
 }
 
+
 function renderMovieOnDom(movie) {
+
     var movieDiv = $('<div>');
-    movieDiv.addClass('item');
+    movieDiv.addClass('item').attr('title',movie.movieTitle);
     var poster = $('<img>', {
         src: movie.moviePoster,
         height: '85%'
     });
     var rating = $('<div>').text(movie.movieRating);
     movieDiv.append(poster, rating);
-    movieDiv.on('click', movieTrailer)
+    movieDiv.on('click', function(){
+        
+        movieTrailer(this.title);
+       
+    })
     $('.carousel-inner').append(movieDiv)
     $('.item').first().addClass('active');
 }
@@ -131,6 +137,7 @@ function placeCallback(results, status) {
                     thisInfoWindow.open(map, thisMarker);
                     $("#myModal").modal('show');
                     $(".modal-title").text(name)
+
                 });
             })()
             console.log(marker)
@@ -207,9 +214,7 @@ function myMap() {
         animation: google.maps.Animation.DROP
     });
     marker.setMap(map);
-    // google.maps.event.addListener(marker, 'click', function(){
-    //     console.log('clicked');
-    // });
+    
 }
 
 function clickMovieTheaters() {
