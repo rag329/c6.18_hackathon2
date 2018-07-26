@@ -5,6 +5,7 @@ var globalMarkers = [];
 var movieArray = [];
 var movieObj = {}
 
+
 function initializeApp() {
     getMovieInfoApi();
     $('#trailerModal').modal('hide');

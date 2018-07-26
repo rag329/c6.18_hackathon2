@@ -6,6 +6,7 @@
     padding: 0;
     box-sizing: border-box;
 }
+
 h4,
 p {
     font-family: Eczar;
@@ -114,21 +115,19 @@ img {
     width: 345px;
 }
 
-
-
-
 .main_container{
     width: 100vw;
     height: 100vh;
 }
 body{
-    background-color: lightblue;
+    background-color: #263238;
     box-sizing: border-box;
     overflow: hidden;
 }
 .topHalf{
     text-align: center;
     margin-top: 10%;
+    margin-bottom: 2%;
 }
 #map{
     height: 500px;
