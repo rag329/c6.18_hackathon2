@@ -8,13 +8,14 @@ var movieObj = {}
 function initializeApp() {
     getMovieInfoApi();
     $('#trailerModal').modal('hide');
-    displayFoodInArea();
     getCustomPlaces();
     addHandlers();
 }
 
 function addHandlers() {
     $(".topHalf button").on('click', determineStartCoords);
+    // $(".topHalf button").on('click', displayFoodInArea);
+
 }
 
 function movieTrailer(title) {
@@ -40,12 +41,12 @@ function movieTrailer(title) {
     $.ajax(ajaxOptions)
 }
 
-function renderMovieOnDom(movie){
+function renderMovieOnDom(movie) {
     var movieDiv = $('<div>');
     movieDiv.addClass('item');
     var poster = $('<img>', {
-          src: movie.moviePoster,
-          height: '85%'
+        src: movie.moviePoster,
+        height: '85%'
     });
     var rating = $('<div>').text(movie.movieRating);
     movieDiv.append(poster, rating);
@@ -55,35 +56,37 @@ function renderMovieOnDom(movie){
 }
 
 
-function displayMovieList(response){
+function displayMovieList(response) {
     var movies = response.results;
     var webAdd = "https://image.tmdb.org/t/p/w185";
-    
-    for(var index = 0; index < 16; index++){
-          var webImage = movies[index].poster_path;
-          var movieTitle = movies[index].title;
-          var moviePoster = webAdd + webImage;
-          var movieRating = movies[index].vote_average + ' /10';
-          movieObj = {
-                movieTitle,
-                moviePoster,
-                movieRating
-          };
-          movieArray.push(movieObj);
-          renderMovieOnDom(movieObj);
+
+    for (var index = 0; index < 16; index++) {
+        var webImage = movies[index].poster_path;
+        var movieTitle = movies[index].title;
+        var moviePoster = webAdd + webImage;
+        var movieRating = 'Rating: ' + movies[index].vote_average + ' / 10';
+        movieObj = {
+            movieTitle,
+            moviePoster,
+            movieRating
+        };
+        movieArray.push(movieObj);
+        renderMovieOnDom(movieObj);
     }
 }
 
-function getMovieInfoApi(){
+function getMovieInfoApi() {
     var movieInfo = {
-          dataType:'json',
-          url: 'https://api.themoviedb.org/3/movie/now_playing?api_key=90ec7552787d25df49e8eac53f951398&language=en-US&page=1',
-          data:{api_key:'90ec7552787d25df49e8eac53f951398'},
-          method:"GET",
-          success:function(response){
-              console.log(response);
+        dataType: 'json',
+        url: 'https://api.themoviedb.org/3/movie/now_playing?api_key=90ec7552787d25df49e8eac53f951398&language=en-US&page=1',
+        data: {
+            api_key: '90ec7552787d25df49e8eac53f951398'
+        },
+        method: "GET",
+        success: function (response) {
+            console.log(response);
             displayMovieList(response);
-          }
+        }
     }
     $.ajax(movieInfo);
 
@@ -118,17 +121,16 @@ function placeCallback(results, status) {
                 animation: google.maps.Animation.DROP
             });
             var infoWindow = new google.maps.InfoWindow({
-                content:place.name
+                content: place.name
             });
-            (function(){
+            (function () {
                 var thisMarker = marker;
                 var name = place.name;
                 var thisInfoWindow = infoWindow;
-                marker.addListener('click',function(){
-                    thisInfoWindow.open(map,thisMarker); 
+                marker.addListener('click', function () {
+                    thisInfoWindow.open(map, thisMarker);
                     $("#myModal").modal('show');
                     $(".modal-title").text(name)
-                    debugger;
                 });
             })()
             console.log(marker)
@@ -165,26 +167,26 @@ function displayFoodInArea(cityname) {
             api_key: "XSyryzoREYThrY1P0pDAkbK9uJV0j7TVklsKegO9g9aqqqGz87SZPuhQ0Cob0jzZ6G1BCVE9JaycPHyB2OI7hXgTJYs_enS7SKr1G21Jf45cDBYbUAHOFnh-r3FWW3Yx"
         },
         success: function (response) {
-            console.log('its working',cityname);
-            var userInput = $('#searchbar').val();
-            $('button').on('click', function () {
-                // console.log(userInput)
-            })
-
+            console.log("it's in");
             var arrayOfBusinesses = response.businesses;
             console.log(arrayOfBusinesses);
-            for(var i = 0; i < 6; i++){
+            for (var i = 0; i < 6; i++) {
                 var newDiv = $('<div>');
+                $(newDiv).addClass('food');
+                $(newDiv).addClass('item');
                 var newh3 = $('<h4>');
                 var newImage = $('<img>');
                 newh3.text(arrayOfBusinesses[i].name);
                 newImage.attr('src', arrayOfBusinesses[i]['image_url']);
                 newDiv.append(newh3, newImage);
-                $('.bottom_area').append(newDiv);
+                console.log(newDiv);
+                $('.food-library').append(newDiv);
+                $('.food').first().addClass('active');
                 var newPtag = $('<h4>').text(`Phone Number: ${arrayOfBusinesses[i].phone.slice(2)}`);
                 var pricePTag = $('<h4>').text(`Price: ${arrayOfBusinesses[i].price}`)
                 newDiv.append(newPtag, pricePTag)
             }
+
         },
         error: function () {
             console.log('error');
@@ -210,19 +212,19 @@ function myMap() {
     // });
 }
 
-function clickMovieTheaters(){
+function clickMovieTheaters() {
     var yelpTheaters = {
-          "url": "https://yelp.ongandy.com/businesses",
-          "method": "POST",
-          "dataType": "JSON",
-          "data": {
-              term: "theaters",
-              location: "long beach",
-              api_key: "XSyryzoREYThrY1P0pDAkbK9uJV0j7TVklsKegO9g9aqqqGz87SZPuhQ0Cob0jzZ6G1BCVE9JaycPHyB2OI7hXgTJYs_enS7SKr1G21Jf45cDBYbUAHOFnh-r3FWW3Yx"
-          },
-          success: function (response){
-                
-          }
+        "url": "https://yelp.ongandy.com/businesses",
+        "method": "POST",
+        "dataType": "JSON",
+        "data": {
+            term: "theaters",
+            location: "long beach",
+            api_key: "XSyryzoREYThrY1P0pDAkbK9uJV0j7TVklsKegO9g9aqqqGz87SZPuhQ0Cob0jzZ6G1BCVE9JaycPHyB2OI7hXgTJYs_enS7SKr1G21Jf45cDBYbUAHOFnh-r3FWW3Yx"
+        },
+        success: function (response) {
+
+        }
     }
 }
 
@@ -278,7 +280,7 @@ function initAutocomplete() {
                 anchor: new google.maps.Point(17, 34),
                 scaledSize: new google.maps.Size(25, 25)
             };
-            
+
             var marker = new google.maps.Marker({
                 map: map,
                 icon: icon,
@@ -290,7 +292,7 @@ function initAutocomplete() {
                 content: place.name
             });
 
-            marker.addListener('click', function() {
+            marker.addListener('click', function () {
                 console.log("Yo what's up");
                 infoWindow.open(map, marker);
             });
