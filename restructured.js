@@ -57,7 +57,7 @@ function renderMovieOnDom(movie) {
         movieTrailer(this.title);
        
     })
-    $('.carousel-inner').append(movieDiv)
+    $('.movie-library').append(movieDiv)
     $('.item').first().addClass('active');
 }
 
@@ -177,7 +177,7 @@ function displayFoodInArea(cityname) {
             console.log("it's in");
             var arrayOfBusinesses = response.businesses;
             console.log(arrayOfBusinesses);
-            for (var i = 0; i < 6; i++) {
+            for (var i = 0; i < arrayOfBusinesses.length; i++) {
                 var newDiv = $('<div>');
                 $(newDiv).addClass('food');
                 $(newDiv).addClass('item');
